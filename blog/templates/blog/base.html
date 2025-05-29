@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}My Blog{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes gradient-x {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+    .animate-gradient-x {
+      animation: gradient-x 3s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <header class="p-4 bg-gray-100 flex items-center gap-4 justify-between">
+    <div class="flex items-center gap-4">
+      <h1>
+        <a href="/blog"
+           class="inline-block bg-gray-200 text-gray-900 font-semibold text-xl px-5 py-2 rounded-xl border border-gray-400 shadow-lg hover:shadow-xl hover:bg-gray-300 active:shadow-inner transition duration-300 ease-in-out">
+          My Blog
+        </a>
+      </h1>
+      <nav>
+        <a href="http://127.0.0.1:8000/blog/create/"
+           class="inline-block bg-gray-200 text-gray-900 font-semibold text-xl px-5 py-2 rounded-xl border border-gray-400 shadow-lg hover:shadow-xl hover:bg-gray-300 active:shadow-inner transition duration-300 ease-in-out">
+          Upload Post
+        </a>
+      </nav>
+    </div>
+
+    <!-- Login/Register button with your exact classes -->
+    <div>
+      <button
+        class="relative inline-block px-6 py-2 rounded-xl border border-gray-400 bg-gray-200 text-gray-900 font-semibold
+               shadow-lg hover:shadow-xl active:shadow-inner transition duration-300 ease-in-out
+               bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_200%] hover:bg-left animate-gradient-x">
+        Login/Register
+      </button>
+    </div>
+  </header>
+  <main>
+    {% block content %}
+    <h2>Test Blog Posts</h2>
+    {% endblock %}
+  </main>
+</body>
+</html>

@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length = 134)
     slug = models.SlugField(default = "", null = False)
     body = models.TextField()
-    publish = models.DateTimeField()
+    publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add = True)
     updated = models.DateTimeField(auto_now = True)
     status = models.CharField(choices = Status.choices, default = Status.DRAFT)
